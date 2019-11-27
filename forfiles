@@ -1,0 +1,15 @@
+:: Forfiles
+:: -s or /S : recurse into all subfolders
+:: -p or /P : path
+:: -m or /M : file mask
+:: -d or /D : number of days (-30 = older than 30 days)
+:: -c or /C : command to execute
+
+:: CMD /C      執行String所指定的命令，然後停止。
+
+:: DEL /Q      指定無訊息模式。 系統不會提示您進行刪除確認。
+:: DEL /S      從目前的目錄和所有子目錄中刪除指定的檔案。 顯示刪除檔案時的名稱。
+		
+Forfiles -p"D:\EAPlog\Server" -s -m*.* -d-8 -c"CMD /C del /Q /S @FILE"
+Forfiles -p"D:\MESLog\F0AM_LOG\Client" -s -m*.* -d-8 -c"CMD /C del /Q /S @FILE"
+Forfiles -p"D:\Log" -s -m*.* -d-8 -c"CMD /C del /Q /S @FILE"
