@@ -13,3 +13,23 @@
 Forfiles -p"D:\EAPlog\Server" -s -m*.* -d-8 -c"CMD /C del /Q /S @FILE"
 Forfiles -p"D:\MESLog\F0AM_LOG\Client" -s -m*.* -d-8 -c"CMD /C del /Q /S @FILE"
 Forfiles -p"D:\Log" -s -m*.* -d-8 -c"CMD /C del /Q /S @FILE"
+
+
+:: 遠端刪除檔案
+For %%i in ( 
+10.2.23.147
+10.2.24.121
+10.61.21.118
+) do (
+
+  net use z: "\\%%i\d"
+
+  @echo Delete files at %%i
+
+  timeout 3
+
+  forfiles -p"z:\TMSCoreMain(R)\Log" -s -m*.* -d-1 -c"CMD /C del /Q /S @FILE"
+  forfiles -p"z:\Tmslog" -s -m*.* -d-1 -c"CMD /C del /Q /S @FILE"
+
+  net use z: /delete /y  
+)
