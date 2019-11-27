@@ -1,0 +1,1 @@
+PsExec64.exe -u domain\user -p password cmd /c "start D:\TMSCoreMain(R)\TMSCoreMain.exe"
