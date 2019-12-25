@@ -1,17 +1,64 @@
 'http://woshub.com/port-forwarding-in-windows/
 
-        '--add
-        'netsh interface portproxy add v4tov4 listenport=10062 listenaddress=10.2.23.190 connectport=5900 connectaddress=192.168.23.62
+'--add
+'netsh interface portproxy add v4tov4 listenport=10062 listenaddress=10.2.23.190 connectport=5900 connectaddress=192.168.23.62
 
-        '--show
-        'netstat -ano | findstr :5900
-        'netsh interface portproxy show all
+'--show
+'netstat -ano | findstr :5900
+'netsh interface portproxy show all
 
-        '--remove
-        'netsh interface portproxy delete v4tov4 listenport=10062 listenaddress=10.2.23.190
-        
-                Dim startInfo As New ProcessStartInfo(Application.StartupPath & "\vnc\vncviewer1201_portable.exe")
-                Dim portProxy As String = Me.DGV_Connection.Rows(e.RowIndex).Cells("PORT_PROXY").Value
-                startInfo.Arguments = "-connect 10.2.23.190:" & portProxy & " -password 5050789"
-                'startInfo.Arguments = "-connect 10.2.23.190:10062 -password 5050789"
-                Process.Start(startInfo)
+'--remove
+'netsh interface portproxy delete v4tov4 listenport=10062 listenaddress=10.2.23.190
+
+office pc call fab cimpc vnc to watch EQ screen
+
+Dim startInfo As New ProcessStartInfo(Application.StartupPath & "\vnc\vncviewer1201_portable.exe")
+Dim portProxy As String = Me.DGV_Connection.Rows(e.RowIndex).Cells("PORT_PROXY").Value
+startInfo.Arguments = "-connect 10.x.x.x:" & portProxy & " -password xxx"
+'startInfo.Arguments = "-connect 10.x.x.x:10062 -password xxx"
+Process.Start(startInfo)
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+create
+
+netsh interface portproxy add v4tov4 listenport=10012 listenaddress=xxx connectport=5900 connectaddress=192.168.23.12
+netsh interface portproxy add v4tov4 listenport=10022 listenaddress=xxx connectport=5900 connectaddress=192.168.23.22
+netsh interface portproxy add v4tov4 listenport=10032 listenaddress=xxx connectport=5900 connectaddress=192.168.23.32
+netsh interface portproxy add v4tov4 listenport=10042 listenaddress=xxx connectport=5900 connectaddress=192.168.23.42
+netsh interface portproxy add v4tov4 listenport=10072 listenaddress=xxx connectport=5900 connectaddress=192.168.23.72
+netsh interface portproxy add v4tov4 listenport=10102 listenaddress=xxx connectport=5900 connectaddress=192.168.23.102
+netsh interface portproxy add v4tov4 listenport=10082 listenaddress=xxx connectport=5900 connectaddress=192.168.23.82
+netsh interface portproxy add v4tov4 listenport=10092 listenaddress=xxx connectport=5900 connectaddress=192.168.23.92
+netsh interface portproxy add v4tov4 listenport=10062 listenaddress=xxx connectport=5900 connectaddress=192.168.23.62
+netsh interface portproxy add v4tov4 listenport=10052 listenaddress=xxx connectport=5900 connectaddress=192.168.23.52
+netsh interface portproxy add v4tov4 listenport=10122 listenaddress=xxx connectport=5900 connectaddress=192.168.23.122
+netsh interface portproxy add v4tov4 listenport=10132 listenaddress=xxx connectport=5900 connectaddress=192.168.23.132
+netsh interface portproxy add v4tov4 listenport=10142 listenaddress=xxx connectport=5900 connectaddress=192.168.23.142
+netsh interface portproxy add v4tov4 listenport=10152 listenaddress=xxx connectport=5900 connectaddress=192.168.23.152
+
+---------------------------------------------------------------------------------------------------------------------
+
+show
+
+C:\Users\CIM>netsh interface portproxy show all
+
+接聽 ipv4:             連線到 ipv4:
+
+位址            連接埠      位址            連接埠
+--------------- ----------  --------------- ----------
+xxx             10062       192.168.23.62   5900
+xxx             10012       192.168.23.12   5900
+xxx             10022       192.168.23.22   5900
+xxx             10032       192.168.23.32   5900
+xxx             10042       192.168.23.42   5900
+xxx             10072       192.168.23.72   5900
+xxx             10102       192.168.23.102  5900
+xxx             10082       192.168.23.82   5900
+xxx             10092       192.168.23.92   5900
+xxx             10052       192.168.23.52   5900
+xxx             10122       192.168.23.122  5900
+xxx             10132       192.168.23.132  5900
+xxx             10142       192.168.23.142  5900
+xxx             10152       192.168.23.152  5900
