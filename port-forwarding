@@ -1,0 +1,17 @@
+'http://woshub.com/port-forwarding-in-windows/
+
+        '--add
+        'netsh interface portproxy add v4tov4 listenport=10062 listenaddress=10.2.23.190 connectport=5900 connectaddress=192.168.23.62
+
+        '--show
+        'netstat -ano | findstr :5900
+        'netsh interface portproxy show all
+
+        '--remove
+        'netsh interface portproxy delete v4tov4 listenport=10062 listenaddress=10.2.23.190
+        
+                Dim startInfo As New ProcessStartInfo(Application.StartupPath & "\vnc\vncviewer1201_portable.exe")
+                Dim portProxy As String = Me.DGV_Connection.Rows(e.RowIndex).Cells("PORT_PROXY").Value
+                startInfo.Arguments = "-connect 10.2.23.190:" & portProxy & " -password 5050789"
+                'startInfo.Arguments = "-connect 10.2.23.190:10062 -password 5050789"
+                Process.Start(startInfo)
